@@ -28,13 +28,19 @@ public class GmailLogin {
 	}
 	
 	@Test
-	public static void LoginTest() {
+	public static void LoginTest() throws InterruptedException {
 		
 		driver.get(baseUrl + "/");
 		driver.findElement(By.id("Email")).sendKeys("ramanakumar.sai@gmail.com");
 		driver.findElement(By.id("next")).click();
 		driver.findElement(By.id("Passwd")).sendKeys("anupama.413");
 		driver.findElement(By.id("signIn")).click();
+		Thread.sleep(3000);
+		String Title = driver.getTitle();
+		System.out.println(Title);
+		driver.findElement(By.xpath(".//*[@id='gb']/div[1]/div[1]/div[2]/div[4]/div[1]/a/span")).click();
+		Thread.sleep(3000);
+		
 	}
 	
 	@AfterClass
